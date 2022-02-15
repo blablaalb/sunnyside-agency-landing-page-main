@@ -35,6 +35,31 @@
 
         <div class="header">
             <img class="header__background-image" src="images/desktop/image-header.jpg" alt="">
+
+            <img class="down-arrow" src="images/icon-arrow-down.svg" alt="">
+
+            <img class="hamburger-btn" src="images/icon-hamburger.svg" alt="">
+
+            <div class="mobile-menu">
+                <div class="mobile-menu__section">
+                    <a href="#">About</a>
+                </div>
+
+                <div class="mobile-menu__section">
+                    <a href="#">Services</a>
+                </div>
+
+                <div class="mobile-menu__section">
+                    <a href="#">Projects</a>
+                </div>
+
+                <div class="mobile-menu__section">
+                    <div style="background-color: #FBD601; width: 50%; height: 60%; display: flex; justify-content: center; align-items: center; border-radius: 50px;">
+                        <a href="#" style="color: #3F3929; font-weight: bold;">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="navbar">
                 <div class="logo">
                     <img style="height: fit-content;" src="images/logo.svg" alt="logo">
@@ -104,7 +129,7 @@
         </div>
 
         <div class="content-row">
-            <div class="content-item" style="display: flex;">
+            <div class="content-item">
                 <img class="content-item__background-img" src="images/desktop/image-graphic-design.jpg" alt="">
                 <div class="content-item__text-wrapper" style="height: 100%">
                     <div class="content-item__text-content">
@@ -141,18 +166,18 @@
                 <h2 class="testimonials-container__title">Client testimonials</h2>
             </div> <!--===TITLE END===-->
 
-            <div style="display: flex; color:hsl(210, 4%, 67%); height: 66.66%;"> <!--===ACTUAL TESTIMONIALS===-->
-                <div>
+            <div class="testimonials-container__wrapper"> <!--===ACTUAL TESTIMONIALS===-->
+                <div class="testimonial">
                     <div class="image-and-text">
 
                         <img src="images/image-emily.jpg" alt="">
-                        <p>
+                        <div class="testimonial__text">
                             We put our trust in Sunnyside and they delivered, making sure our needs were met and
                             deadlines
                             were
                             always
                             hit.
-                        </p>
+                        </div>
                     </div>
 
                     <div class="client">
@@ -163,16 +188,16 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="testimonial">
                     <div class="image-and-text">
-
                         <img src="images/image-thomas.jpg" alt="">
-
-                        Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a
-                        satisfying
-                        and
-                        enjoyable
-                        experience.
+                        <div class="testimonial__text">
+                            Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a
+                            satisfying
+                            and
+                            enjoyable
+                            experience.
+                        </div>
                     </div>
 
                     <div class="client">
@@ -183,11 +208,13 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="testimonial">
                     <div class="image-and-text">
                         <img src="images/image-jennie.jpg" alt="">
-                        Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly
-                        recommended!
+                        <div class="testimonial__text">
+                            Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly
+                            recommended!
+                        </div>
                     </div>
 
                     <div class="client">
@@ -202,10 +229,14 @@
 
         </div>
         <div class="bottom-images">
-            <img src="images/desktop/image-gallery-milkbottles.jpg" alt="milk">
-            <img src="images/desktop/image-gallery-orange.jpg" alt="orange">
-            <img src="images/desktop/image-gallery-cone.jpg" alt="cone">
-            <img src="images/desktop/image-gallery-sugarcubes.jpg" alt="sugarcubes">
+            <div class="bottom-images__first-row">
+                <img class="bottom-images__image" src="images/desktop/image-gallery-milkbottles.jpg" alt="milk">
+                <img class="bottom-images__image" src="images/desktop/image-gallery-orange.jpg" alt="orange">
+            </div>
+            <div class="bottom-images__second-row">
+                <img class="bottom-images__image" src="images/desktop/image-gallery-cone.jpg" alt="cone">
+                <img class="bottom-images__image" src="images/desktop/image-gallery-sugarcubes.jpg" alt="sugarcubes">
+            </div>
         </div>
         <footer>
             <div class="footer">
@@ -239,4 +270,38 @@
 
 </div>
 </body>
+<script !src="">
+    isOn = false;
+    document.querySelector(".mobile-menu").style.display = 'none';
+
+    function on() {
+        document.querySelector(".mobile-menu").style.display = 'block';
+        isOn = true;
+    }
+
+    function off() {
+        document.querySelector(".mobile-menu").style.display = 'none';
+        isOn = false;
+    }
+
+    document.querySelector(".hamburger-btn").addEventListener("click", event => {
+        if (!isOn) {
+            on();
+        } else {
+            off();
+        }
+        event.stopPropagation();
+    });
+
+    window.addEventListener("click", () => {
+        if (isOn) {
+            off();
+        }
+    });
+
+    window.addEventListener("scroll", () => {
+        if (isOn) off();
+    });
+</script>
+
 </html>
